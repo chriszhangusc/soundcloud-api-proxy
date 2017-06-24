@@ -1,0 +1,20 @@
+{
+  "name": "soundcloud-api-proxy",
+  "version": "1.0.0",
+  "description": "A proxy server for soundcloud api",
+  "main": "index.js",
+  "repository": "https://github.com/MiniPekka/soundcloud-api-proxy.git",
+  "author": "Chris Zhang <chaoye917@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "http-proxy-middleware": "^0.17.4"
+  },
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
