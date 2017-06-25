@@ -19,33 +19,29 @@ app.use((req, res, next) => {
   if (allowedOrigins.indexOf(origin) > -1) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }
-
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
   res.setHeader('Access-Control-Allow-Credentials', true);
-
   // Pass to next layer of middleware
   next();
 });
 
 // proxy middleware options
-const optionsV2 = {
-  target: 'https://api-v2.soundcloud.com', // target host
-  changeOrigin: true, // needed for virtual hosted sites
-  ws: true, // proxy websockets
-  pathRewrite: {
-    '^/sc/v2': '/',
-  },
-};
-
 const optionsV1 = {
   target: 'https://api.soundcloud.com',
   changeOrigin: true,
   ws: true,
   pathRewrite: {
     '^/sc/v1': '/',
+  },
+};
+
+const optionsV2 = {
+  target: 'https://api-v2.soundcloud.com', // target host
+  changeOrigin: true, // needed for virtual hosted sites
+  ws: true, // proxy websockets
+  pathRewrite: {
+    '^/sc/v2': '/',
   },
 };
 
